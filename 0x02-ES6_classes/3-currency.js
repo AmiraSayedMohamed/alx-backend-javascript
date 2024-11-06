@@ -1,10 +1,16 @@
-export default class Currency {
+class Currency {
   constructor(code, name) {
-    this._code = code;
-    this._name = name;
+    this.code = code;
+    this.name = name;
   }
 
+  /**
+   * @param {String} code
+   */
   set code(code) {
+    if (typeof code !== 'string') {
+      throw new TypeError('Code must be a String');
+    }
     this._code = code;
   }
 
@@ -12,7 +18,13 @@ export default class Currency {
     return this._code;
   }
 
+  /**
+   * @param {String} name
+   */
   set name(name) {
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a String');
+    }
     this._name = name;
   }
 
@@ -24,3 +36,5 @@ export default class Currency {
     return `${this.name} (${this.code})`;
   }
 }
+
+export default Currency;

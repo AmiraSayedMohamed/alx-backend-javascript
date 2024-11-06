@@ -5,4 +5,4 @@ const test = async () => {
     console.log(value);
 };
 
-test(_);
+test();
